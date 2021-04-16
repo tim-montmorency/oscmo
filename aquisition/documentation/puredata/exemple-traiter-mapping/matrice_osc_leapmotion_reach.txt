@@ -1,0 +1,80 @@
+// definir le protocole de traitement dans la liste 
+// [adresse osc] [type de data] [canal midi] [cc number] [min] [max]
+/Left/presence b 1 0 0 1
+/Right/presence b 2 0 0 1
+
+/Right/palm f3 2 1 0 1
+
+/Right/wrist f3 2 2 0 1
+
+/Right/rotation f3 2 3 0 1 
+
+/Right/TYPE_THUMB/extended b 2 4 0 1 
+/Right/TYPE_THUMB/knuckle f3 2 5 -1 1
+/Right/TYPE_THUMB/joint1 f3 2 6 -1 1
+/Right/TYPE_THUMB/joint2 f3 2 7 -1 1
+/Right/TYPE_THUMB/joint3 f3 2 8 -1 1
+
+/Right/TYPE_INDEX/extended 0-1
+/Right/TYPE_INDEX/knuckle X Y Z
+/Right/TYPE_INDEX/joint1 X Y Z
+/Right/TYPE_INDEX/joint2 X Y Z
+/Right/TYPE_INDEX/joint3 X Y Z
+
+/Right/TYPE_MIDDLE/extended 0-1
+/Right/TYPE_MIDDLE/knuckle X Y Z
+/Right/TYPE_MIDDLE/joint1 X Y Z
+/Right/TYPE_MIDDLE/joint2 X Y Z
+/Right/TYPE_MIDDLE/joint3 X Y Z
+
+/Right/TYPE_RING/extended 0-1
+/Right/TYPE_RING/knuckle X Y Z
+/Right/TYPE_RING/joint1 X Y Z
+/Right/TYPE_RING/joint2 X Y Z
+/Right/TYPE_RING/joint3 X Y Z
+
+/Right/TYPE_PINKY/extended 0-1
+/Right/TYPE_PINKY/knuckle X Y Z
+/Right/TYPE_PINKY/joint1 X Y Z
+/Right/TYPE_PINKY/joint2 X Y Z
+/Right/TYPE_PINKY/joint3 X Y Z
+
+/Right/grab f1 2 32? 0 3.1416
+
+/Left/palm X Y Z
+
+/Left/wrist X Y Z
+
+/Left/rotation X Y Z
+
+/Left/TYPE_THUMB/extended 0-1
+/Left/TYPE_THUMB/knuckle X Y Z
+/Left/TYPE_THUMB/joint1 X Y Z
+/Left/TYPE_THUMB/joint2 X Y Z
+/Left/TYPE_THUMB/joint3 X Y Z
+
+/Left/TYPE_INDEX/extended 0-1
+/Left/TYPE_INDEX/knuckle X Y Z
+/Left/TYPE_INDEX/joint1 X Y Z
+/Left/TYPE_INDEX/joint2 X Y Z
+/Left/TYPE_INDEX/joint3 X Y Z
+
+/Left/TYPE_MIDDLE/extended 0-1
+/Left/TYPE_MIDDLE/knuckle X Y Z
+/Left/TYPE_MIDDLE/joint1 X Y Z
+/Left/TYPE_MIDDLE/joint2 X Y Z
+/Left/TYPE_MIDDLE/joint3 X Y Z
+
+/Left/TYPE_RING/extended 0-1
+/Left/TYPE_RING/knuckle X Y Z
+/Left/TYPE_RING/joint1 X Y Z
+/Left/TYPE_RING/joint2 X Y Z
+/Left/TYPE_RING/joint3 X Y Z
+
+/Left/TYPE_PINKY/extended 0-1
+/Left/TYPE_PINKY/knuckle X Y Z
+/Left/TYPE_PINKY/joint1 X Y Z
+/Left/TYPE_PINKY/joint2 X Y Z
+/Left/TYPE_PINKY/joint3 X Y Z
+
+/Left/grab 0-3.1416
