@@ -1,0 +1,12 @@
+# [type de input] [midi index] [fonction] [function index] [param1]
+[param2];
+ctl 62 main_fader 1;
+ctl 19 source_fader 1 Media-Source-1 cc;
+ctl 23 source_fader 2 Media-Source-2 cc;
+ctl 27 source_fader 3 Media-Source-3 cc;
+ctl 31 source_fader 4 Media-Source-4 cc;
+ctl 49 source_fader 5 Media-Source-5 cc;
+ctl 53 source_fader 6 Media-Source-6 cc;
+ctl 57 source_fader 7 Media-Source-7 cc;
+ctl 61 source_fader 8 Media-Source-8 cc;
+note 3 media_restart 1;

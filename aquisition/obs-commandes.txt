@@ -1,0 +1,5 @@
+ls;
+npx obs-cli SetRecordingFolder='{ "rec-folder": "/Users/gllm/Videos"
+}';
+curl -XPOST -H "Content-type: application/json" -d '{"scene-name":"Scene
+2"}' 'http://127.0.0.1:4445/emit/SetCurrentScene';
