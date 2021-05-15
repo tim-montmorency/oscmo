@@ -1,7 +1,20 @@
 # [type de input] [midi index] [fonction] [function index] [param1]
 [param2];
-ctl 62 main_fader 1;
-ctl 200 param-fader 1 grp-fx-1 cc saturation -1 1;
+ctl 16 source-fader 1 horizon-1 cc;
+ctl 17 source-fader 2 horizon-2 cc;
+ctl 18 source-fader 1 horizon-3 cc;
+ctl 20 source-fader 2 horizon-4 cc;
+ctl 21 source-fader 1 horizon-5 cc;
+ctl 22 source-fader 2 horizon-6 cc;
+ctl 24 source-fader 1 horizon-7 cc;
+ctl 25 source-fader 2 horizon-8 cc;
+ctl 26 source-fader 1 horizon-9 cc;
+ctl 28 source-fader 2 horizon-10 cc;
+ctl 29 source-fader 1 horizon-11 cc;
+ctl 30 source-fader 2 horizon-12 cc;
+ctl 58 source-fader 1 syphon-horizon cc;
+ctl 62 source-fader 1 playback-horizon cc;
+ctl 200 param-fader 1 grp-fx-1 cc saturation -1 0;
 ctl 19 source-fader 1 Media-Source-1 cc;
 ctl 23 source-fader 2 Media-Source-2 cc;
 ctl 27 source-fader 3 Media-Source-3 cc;
