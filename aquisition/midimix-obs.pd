@@ -14,7 +14,7 @@ horizon-15 cc \; ctl 50 source-fader 16 horizon-16 cc \; ctl 51 source-fader
 source-fader 19 horizon-19 cc \; ctl 55 source-fader 20 horizon-20
 cc \; ctl 56 source-fader 21 horizon-21 cc \; ctl 200 source-fader
 101 japon-1 cc \; ctl 200 source-fader 102 japon-2 cc \; ctl 200 source-fader
-103 japon-3 cc \; ctl 58 source-fader 1 syphon-horizon cc \; ctl 62
+103 japon-3 cc \; ctl 58 source-fader 99 syphon-horizon cc \; ctl 62
 source-fader 1 playback-horizon cc \; ctl 200 param-fader 1 grp-fx-1
 cc saturation -1 0 \; ctl 19 source-fader 1 Media-Source-1 cc \; ctl
 23 source-fader 2 Media-Source-2 cc \; ctl 27 source-fader 3 Media-Source-3
@@ -181,7 +181,7 @@ possibilité de redémarer la source aussi et;
 #X connect 12 0 4 0;
 #X restore 49 195 pd notein;
 #X obj 48 244 t a;
-#N canvas 495 420 450 300 netsend-obs-osc 1;
+#N canvas 639 366 450 300 netsend-obs-osc 0;
 #X obj 26 228 netsend -u -b;
 #X obj 26 14 r to-obs-osc;
 #X obj 39 166 loadbang;
@@ -199,7 +199,7 @@ possibilité de redémarer la source aussi et;
 #X connect 5 0 4 1;
 #X connect 7 0 0 0;
 #X restore 47 394 pd netsend-obs-osc;
-#N canvas 34 0 936 740 oscrouter 1;
+#N canvas 34 0 936 740 oscrouter 0;
 #X obj 130 88 netreceive -u -b;
 #X obj 130 36 loadbang;
 #X obj 135 517 text search t_fader_map_\$0 2;
@@ -283,7 +283,8 @@ gui-out source-fader 102 0 \; gui-out source-fader 103 0 \;;
 #X restore 439 222 pd reset;
 #X obj 419 223 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 367 98 print;
+#X obj 407 100 print;
+#X obj 524 76;
 #X connect 0 0 7 0;
 #X connect 1 0 19 0;
 #X connect 2 0 12 0;
@@ -356,7 +357,7 @@ gui-out source-fader 102 0 \; gui-out source-fader 103 0 \;;
 #X connect 5 0 0 0;
 #X connect 7 0 6 0;
 #X restore 295 30 pd systemcommand_wip;
-#N canvas 409 46 624 593 gui 1;
+#N canvas 121 157 624 593 gui 0;
 #X obj 20 372 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
 -1 -1 0 1;
 #X obj 18 552 outlet;
@@ -367,10 +368,10 @@ gui-out source-fader 102 0 \; gui-out source-fader 103 0 \;;
 #X msg 69 452 source-fader 4 \$1;
 #X msg 70 415 0;
 #X msg 107 416 1;
-#X msg 22 114 source-fader 101 \$1;
-#X msg 33 76 0;
-#X msg 25 50 1;
-#X obj 22 183 send gui-out;
+#X msg 26 211 source-fader 101 \$1;
+#X msg 34 181 0;
+#X msg 26 139 1;
+#X obj 26 257 send gui-out;
 #X msg 182 67 0;
 #X msg 214 67 1;
 #X obj 182 135 send gui-out;
@@ -380,16 +381,15 @@ gui-out source-fader 102 0 \; gui-out source-fader 103 0 \;;
 #X msg 387 65 1;
 #X obj 355 133 send gui-out;
 #X msg 355 109 source-fader 103 \$1;
-#X msg 89 61 1;
-#X msg 122 62 0;
-#X obj 25 26 t b b;
+#X msg 69 142 1;
+#X msg 102 143 0;
 #N canvas 0 22 450 300 shutter 0;
 #X obj 39 27 inlet;
 #X obj 55 118 pdcontrol;
 #X msg 55 95 dir;
 #X obj 41 63 t f b;
 #X obj 32 202 list trim;
-#X obj 171 49 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 171 49 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 32 178 list prepend;
 #X obj 31 232 ggee/shell;
@@ -406,8 +406,38 @@ gui-out source-fader 102 0 \; gui-out source-fader 103 0 \;;
 #X connect 7 0 9 0;
 #X connect 7 1 9 0;
 #X connect 8 0 6 1;
-#X restore 89 93 pd shutter;
-#X msg 25 2 cue_japon_1_in;
+#X restore 69 174 pd shutter;
+#X msg 27 13 cue_japon_1_in;
+#X msg 176 169 1;
+#X msg 209 170 0;
+#N canvas 0 22 450 300 shutter 0;
+#X obj 39 27 inlet;
+#X obj 55 118 pdcontrol;
+#X msg 55 95 dir;
+#X obj 41 63 t f b;
+#X obj 32 202 list trim;
+#X obj 171 49 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 32 178 list prepend;
+#X obj 31 232 ggee/shell;
+#X obj 55 142 makefilename %s/scripts/shutter.sh;
+#X obj 31 256 print shutter_shell;
+#X connect 0 0 3 0;
+#X connect 1 0 8 0;
+#X connect 2 0 1 0;
+#X connect 3 0 6 0;
+#X connect 3 1 2 0;
+#X connect 4 0 7 0;
+#X connect 5 0 3 0;
+#X connect 6 0 4 0;
+#X connect 7 0 9 0;
+#X connect 7 1 9 0;
+#X connect 8 0 6 1;
+#X restore 219 281 pd shutter;
+#X msg 180 213 source-fader 99 \$1;
+#X obj 26 115 t b b b;
+#X msg 40 44 cue_japon_1_out;
+#X obj 40 68 t b b b;
 #X connect 0 0 2 0;
 #X connect 2 0 1 0;
 #X connect 3 0 4 0;
@@ -425,11 +455,19 @@ gui-out source-fader 102 0 \; gui-out source-fader 103 0 \;;
 #X connect 17 0 20 0;
 #X connect 18 0 20 0;
 #X connect 20 0 19 0;
-#X connect 21 0 24 0;
-#X connect 22 0 24 0;
-#X connect 23 0 10 0;
-#X connect 23 1 21 0;
-#X connect 25 0 23 0;
+#X connect 21 0 23 0;
+#X connect 22 0 23 0;
+#X connect 24 0 29 0;
+#X connect 25 0 28 0;
+#X connect 26 0 28 0;
+#X connect 28 0 11 0;
+#X connect 29 0 10 0;
+#X connect 29 1 21 0;
+#X connect 29 2 26 0;
+#X connect 30 0 31 0;
+#X connect 31 0 9 0;
+#X connect 31 1 22 0;
+#X connect 31 2 25 0;
 #X restore 27 125 pd gui;
 #N canvas 29 10 563 660 param_fader 0;
 #X obj 17 1 inlet;
