@@ -236,7 +236,6 @@ possibilité de redémarer la source aussi et;
 #X obj 419 223 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 407 100 print;
-#X obj 524 76;
 #X obj 330 379 route reset;
 #X obj 418 379 route cue_japon_1;
 #X obj 418 404 bng 15 250 50 0 cue_japon_1 empty empty 17 7 0 10 -262144
@@ -244,9 +243,12 @@ possibilité de redémarer la source aussi et;
 #X obj 330 404 bng 15 250 50 0 cue_reset empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 549 380 route cue_japon_1_horizon;
-#X obj 547 412 bng 15 250 50 0 cue_japon_1_horizon empty empty 17 7
+#X obj 549 406 bng 15 250 50 0 cue_japon_1_horizon empty empty 17 7
 0 10 -262144 -1 -1;
 #X obj 219 343 print;
+#X obj 746 405 bng 15 250 50 0 cue_japon_2 empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 746 379 route cue_japon_2;
 #X connect 0 0 7 0;
 #X connect 1 0 19 0;
 #X connect 2 0 12 0;
@@ -271,8 +273,8 @@ possibilité de redémarer la source aussi et;
 #X connect 18 0 17 1;
 #X connect 19 0 0 0;
 #X connect 20 0 5 0;
-#X connect 20 0 35 0;
-#X connect 20 0 41 0;
+#X connect 20 0 34 0;
+#X connect 20 0 40 0;
 #X connect 21 0 27 0;
 #X connect 21 1 22 0;
 #X connect 22 0 23 0;
@@ -285,11 +287,13 @@ possibilité de redémarer la source aussi et;
 #X connect 28 0 20 0;
 #X connect 30 0 31 0;
 #X connect 30 0 32 0;
-#X connect 35 0 38 0;
-#X connect 35 1 36 0;
-#X connect 36 0 37 0;
-#X connect 36 1 39 0;
-#X connect 39 0 40 0;
+#X connect 34 0 37 0;
+#X connect 34 1 35 0;
+#X connect 35 0 36 0;
+#X connect 35 1 38 0;
+#X connect 38 0 39 0;
+#X connect 38 1 42 0;
+#X connect 42 0 41 0;
 #X restore 27 150 pd oscrouter;
 #N canvas 0 23 682 614 systemcommand_wip 0;
 #X obj 105 288 ggee/shell;
@@ -325,30 +329,30 @@ possibilité de redémarer la source aussi et;
 #X connect 5 0 0 0;
 #X connect 7 0 6 0;
 #X restore 295 30 pd systemcommand_wip;
-#N canvas 512 64 611 631 gui 0;
-#X obj 25 398 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+#N canvas 501 93 611 631 gui 0;
+#X obj 33 427 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
 -1 -1 0 1;
-#X obj 23 578 outlet;
-#X msg 25 535 source-fader 1 \$1;
-#X obj 46 372 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+#X obj 31 607 outlet;
+#X msg 33 564 source-fader 1 \$1;
+#X obj 54 401 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
 -1 -1 0 1;
-#X msg 46 509 param-fader 1 \$1;
-#X msg 74 478 source-fader 4 \$1;
-#X msg 75 441 0;
-#X msg 112 442 1;
+#X msg 54 538 param-fader 1 \$1;
+#X msg 82 507 source-fader 4 \$1;
+#X msg 83 470 0;
+#X msg 120 471 1;
 #X msg 31 237 source-fader 101 \$1;
 #X msg 39 207 0;
 #X msg 31 165 1;
 #X obj 31 283 send gui-out;
-#X msg 234 104 0;
-#X msg 266 104 1;
-#X obj 204 157 send gui-out;
-#X obj 53 557 r gui-out;
-#X msg 204 133 source-fader 102 \$1;
-#X msg 360 91 0;
-#X msg 392 91 1;
-#X obj 360 159 send gui-out;
-#X msg 360 135 source-fader 103 \$1;
+#X msg 417 187 0;
+#X msg 449 187 1;
+#X obj 416 239 send gui-out;
+#X obj 61 586 r gui-out;
+#X msg 416 215 source-fader 102 \$1;
+#X msg 418 440 0;
+#X msg 450 440 1;
+#X obj 418 508 send gui-out;
+#X msg 418 484 source-fader 103 \$1;
 #X msg 74 168 1;
 #X msg 107 169 0;
 #N canvas 0 22 450 300 shutter 0;
@@ -429,12 +433,15 @@ gui-out source-fader 102 0 \; gui-out source-fader 103 0 \;;
 #X connect 3 0 5 0;
 #X connect 4 0 5 0;
 #X connect 6 0 2 0;
-#X restore 458 49 pd reset;
-#X obj 457 20 r cue_reset;
+#X restore 460 84 pd reset;
+#X obj 459 55 r cue_reset;
 #X text 173 276 au poisson fade rouge;
 #X msg 136 55 cue_japon_1_horizon;
 #X obj 144 80 r cue_japon_1_horizon;
 #X obj 172 28 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 450 162 r cue_japon_2;
+#X obj 437 53 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X connect 0 0 2 0;
 #X connect 2 0 1 0;
@@ -469,6 +476,8 @@ gui-out source-fader 102 0 \; gui-out source-fader 103 0 \;;
 #X connect 34 0 29 0;
 #X connect 35 0 29 0;
 #X connect 35 0 36 0;
+#X connect 37 0 13 0;
+#X connect 38 0 31 0;
 #X restore 27 125 pd gui;
 #N canvas 29 10 563 660 param_fader 0;
 #X obj 17 1 inlet;
