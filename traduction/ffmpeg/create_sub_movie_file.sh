@@ -14,7 +14,7 @@ function allocate_time
 
 function integrate_sub
 {
-	ffmpeg -i "$1".mp4 -lavfi "subtitles=subtitles.srt:force_style='Fontname=Avenir Light, Alignment=10,Fontsize=128'" -crf 1 -c:a copy "$1""_sub.mp4"
+	ffmpeg -i "$1".mp4 -lavfi "subtitles=$1:force_style='Fontname=Avenir Light, Alignment=10,Fontsize=128'" -crf 1 -c:a copy "$1""_sub.mp4"
 }
 
 function cleanup
