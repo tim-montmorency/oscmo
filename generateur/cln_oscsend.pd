@@ -8,7 +8,7 @@
 #X obj 70 446 route paf;
 #X obj 60 64 list trim;
 #X obj 60 87 list split 1;
-#X obj 100 194 print;
+#X obj 162 275 print;
 #X obj 330 45 int \$1;
 #X obj 335 80 text search oscsend;
 #X obj 326 20 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
@@ -17,14 +17,20 @@
 #X obj 335 104 t a b;
 #X msg 336 191 disconnect \, connect \$1 \$2;
 #X obj 336 218 netsend -u -b;
-#X obj 64 138 text search oscsend 1;
-#X obj 64 162 text get oscsend;
+#X obj 70 175 text search oscsend 1;
+#X obj 92 213 text get oscsend;
+#X obj 13 198 print;
+#X obj 38 115 t a a;
+#X obj 112 115 list prepend send;
+#X obj 112 139 list trim;
+#X obj 410 20 r init;
 #X connect 0 0 7 0;
 #X connect 3 0 2 0;
 #X connect 4 0 5 0;
 #X connect 5 0 6 0;
 #X connect 7 0 8 0;
-#X connect 8 0 17 0;
+#X connect 8 0 20 0;
+#X connect 8 1 21 0;
 #X connect 10 0 11 0;
 #X connect 11 0 14 0;
 #X connect 12 0 10 0;
@@ -32,3 +38,7 @@
 #X connect 14 0 13 0;
 #X connect 15 0 16 0;
 #X connect 17 0 18 0;
+#X connect 20 1 17 0;
+#X connect 21 0 22 0;
+#X connect 22 0 16 0;
+#X connect 23 0 12 0;
