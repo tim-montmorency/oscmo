@@ -19,7 +19,7 @@
 #X connect 7 0 9 0;
 #X connect 8 1 7 0;
 #X restore 52 35 pd clock;
-#N canvas 705 131 450 300 sample_arrays 1;
+#N canvas 705 131 450 300 sample_arrays 0;
 #X obj 17 31 array define -k -yrange 0 1 sample_1 32768;
 #A 0 0.606667 0.623333 0.623333 0.623333 0.623333 0.623333 0.623333
 0.623333 0.623333 0.623333 0.623333 0.623333 0.623333 0.623333 0.623333
@@ -40433,7 +40433,7 @@
 #X connect 0 0 1 0;
 #X connect 2 0 1 0;
 #X restore 51 10 pd init;
-#N canvas 728 332 462 375 output 1;
+#N canvas 728 332 462 375 output 0;
 #X obj 195 19 text define -k mapping;
 #A set index \, destination \, OSC Adresse \, function + param \; 0
 destin /tralala scale 0 100 \; 1 destin /trop scale 0 50 \; 2 destin
