@@ -1,4 +1,4 @@
-#N canvas 72 199 450 300 12;
+#N canvas 242 347 450 300 12;
 #N canvas 243 405 379 335 clock 0;
 #X obj 17 105 send clock;
 #X obj 17 81 metro 16;
@@ -19,7 +19,7 @@
 #X connect 7 0 9 0;
 #X connect 8 1 7 0;
 #X restore 52 35 pd clock;
-#N canvas 705 131 450 300 sample_arrays 0;
+#N canvas 705 131 450 300 sample_arrays 1;
 #X obj 17 31 array define -k -yrange 0 1 sample_1 32768;
 #A 0 0.606667 0.623333 0.623333 0.623333 0.623333 0.623333 0.623333
 0.623333 0.623333 0.623333 0.623333 0.623333 0.623333 0.623333 0.623333
@@ -40433,7 +40433,7 @@
 #X connect 0 0 1 0;
 #X connect 2 0 1 0;
 #X restore 51 10 pd init;
-#N canvas 71 417 462 375 output 0;
+#N canvas 728 332 462 375 output 1;
 #X obj 195 19 text define -k mapping;
 #A set index \, destination \, OSC Adresse \, function + param \; 0
 destin /tralala scale 0 100 \; 1 destin /trop scale 0 50 \; 2 destin
@@ -40454,7 +40454,7 @@ destin /tralala scale 0 100 \; 1 destin /trop scale 0 50 \; 2 destin
 #X connect 5 0 4 0;
 #X restore 55 200 pd output;
 #N canvas 521 320 450 300 netsender 0;
-#X obj 68 215 clone cln_oscsend 10;
+#X obj 65 196 clone cln_oscsend 10;
 #X obj 261 52 text define -k oscsend;
 #A set index routename ip port \; 0 destin 127.0.0.1 9999 \; 1 destin2
 127.0.0.1 10000 \;;
@@ -40463,14 +40463,13 @@ destin /tralala scale 0 100 \; 1 destin /trop scale 0 50 \; 2 destin
 #X obj 121 98 list split 1;
 #X obj 121 122 text search oscsend 1;
 #X obj 65 171 list prepend;
-#X obj 250 226 print, f 10;
 #X obj 122 145 text get oscsend 0 1;
 #X connect 2 0 3 0;
 #X connect 3 0 6 0;
 #X connect 3 1 4 0;
 #X connect 4 0 5 0;
-#X connect 5 0 8 0;
+#X connect 5 0 7 0;
 #X connect 6 0 0 0;
-#X connect 8 0 6 1;
+#X connect 7 0 6 1;
 #X restore 55 227 pd netsender;
 #X connect 5 0 6 0;
