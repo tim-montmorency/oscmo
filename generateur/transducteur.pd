@@ -1,5 +1,5 @@
-#N canvas 676 413 450 300 12;
-#N canvas 243 394 379 335 clock 1;
+#N canvas 669 171 450 300 12;
+#N canvas 243 394 379 335 clock 0;
 #X obj 17 105 send clock;
 #X obj 17 81 metro 16;
 #X obj 17 62 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
@@ -22,11 +22,10 @@
 #N canvas 728 332 462 375 output 0;
 #X obj 195 19 text define -k mapping;
 #A set index \, destination \, OSC Adresse \, function + param \; 0
-destin /tralala scale 0 100 \; 1 destin /trop scale 0 50 \; 2 destin
-/stuff scale 33 150 \; 3 destin /help scale -1 1 \; 4 destin /joo scale
--3 3 \; 5 destin /fte scale 0 127 \; 6 destin /adsfa scale -1 1 \;
-7 destin /faosdfk scale -1 1 \; 8 destin /asdofk scale -1 1 \; 9 destin
-/paf scale -2 2 \;;
+destin /1 scale 0 1 \; 1 destin /2 scale 0 1 \; 2 destin /3 scale 0
+1 \; 3 destin /4 scale 0 1 \; 4 destin /5 scale 0 1 \; 5 destin /5
+scale 0 1 \; 6 destin /6 scale 0 1 \; 7 destin /7 scale 0 1 \; 8 destin
+/8 scale 0 1 \; 9 destin /9 scale 0 1 \;;
 #X obj 82 23 r clock;
 #X msg 82 91 all \$1;
 #X obj 82 146 list split 1;
@@ -42,7 +41,7 @@ destin /tralala scale 0 100 \; 1 destin /trop scale 0 50 \; 2 destin
 #N canvas 521 320 450 300 netsender 0;
 #X obj 65 196 clone cln_oscsend 10;
 #X obj 261 52 text define -k oscsend;
-#A set index routename ip port \; 0 destin 127.0.0.1 9999 \; 1 destin2
+#A set index routename ip port \; 0 destin 192.168.1.54 9999 \; 1 destin2
 127.0.0.1 10000 \;;
 #X obj 67 27 inlet;
 #X obj 67 68 t a a;
@@ -70,27 +69,27 @@ destin /tralala scale 0 100 \; 1 destin /trop scale 0 50 \; 2 destin
 -1;
 #X obj 74 276 ctlout;
 #X obj 74 70 array size emg;
-#X obj 74 225 expr emg[$f1]*127 \; $f1 \;;
-#X obj 74 45 spigot;
-#X obj 33 21 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+#X obj 33 21 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
 ;
+#X obj 74 45 spigot 1;
+#X obj 74 225 expr emg[$f1]*127 \; $f1 \;;
 #X connect 0 0 11 0;
 #X connect 1 0 4 0;
 #X connect 2 0 4 1;
 #X connect 3 0 1 0;
 #X connect 3 1 2 0;
 #X connect 4 0 5 0;
-#X connect 5 0 10 0;
+#X connect 5 0 12 0;
 #X connect 5 1 6 0;
 #X connect 6 0 4 1;
 #X connect 7 0 9 0;
 #X connect 9 0 3 0;
-#X connect 10 0 8 0;
-#X connect 10 1 8 1;
+#X connect 10 0 11 1;
 #X connect 11 0 9 0;
-#X connect 12 0 11 1;
+#X connect 12 0 8 0;
+#X connect 12 1 8 1;
 #X restore 162 199 pd midiout;
-#N canvas 546 136 703 411 osc_input 1;
+#N canvas 546 136 703 411 osc_input 0;
 #X obj 107 45 r init;
 #X msg 107 86 listen 0 \, listen 51337;
 #X obj 107 115 netreceive -u -b;
